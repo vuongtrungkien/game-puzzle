@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game puzzle</title>
+</head>
+<body>
+<button type="button" id="buttonTop" onclick="topclick()"><img id="img" src="img/img1.JPG" height="245" width="661" alt="1"/>
+</button>
+<button type="button" id="buttonBot" onclick="botclick()"><img id="img2" src="img/img4.jpg" height="212" width="661" alt="1"/>
+</button>
+<script>
+    let myImgTop = document.getElementById('img');
+    let myImgBot = document.getElementById('img2');
+    let buttonTop = document.getElementById('buttonTop');
+    let buttonBot = document.getElementById('buttonBot');
+
+    function clickImg() {
+        if (myImgTop.src.match('img1.JPG')) {
+            myImgTop.src = "img/img3.jpg";
+        } else if (myImgTop.src.match('img3.jpg')) {
+            myImgTop.src = "img/img1.JPG";
+        }
+    }
+    function clickImg2() {
+        if (myImgBot.src.match('img2.JPG')) {
+            myImgBot.src = "img/img4.jpg";
+        } else if (myImgBot.src.match('img4.jpg')) {
+            myImgBot.src = "img/img2.JPG";
+        }
+    }
+
+
+    function topclick() {
+        buttonTop.addEventListener("click", clickImg);
+        check()
+    }
+
+    function botclick() {
+        buttonBot.addEventListener("click", clickImg2); 
+        check()
+    }
+    function check() {
+        if (myImgTop.alt == '1' && myImgBot.alt == '1' ) {
+            alert('You win');
+        } else if (myImgTop.alt != '1' && myImgBot.alt != '1' ) {
+            alert('You win')
+
+        }
+    }
+
+</script>
+</body>
+</html>
